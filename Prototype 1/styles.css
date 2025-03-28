@@ -119,6 +119,12 @@ main {
     font-size: 0.9rem;
     z-index: 10;
     text-align: left;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+header:hover #profile-widget {
+    opacity: 1;
 }
 
 #profile-widget h3 {
@@ -178,5 +184,18 @@ footer {
       display: block;
       margin: 10px 0;
     }
+  }
+  
+  #search {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  #search input {
+    padding: 0.5rem;
+    width: 60%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
   }
   

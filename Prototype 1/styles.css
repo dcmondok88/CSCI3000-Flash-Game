@@ -166,3 +166,17 @@ footer {
     color: white;
     font-size: 0.9rem;
 }
+
+@media screen and (max-width: 600px) {
+    nav ul {
+      display: block;
+      padding: 0;
+      text-align: center;
+    }
+  
+    nav ul li {
+      display: block;
+      margin: 10px 0;
+    }
+  }
+  

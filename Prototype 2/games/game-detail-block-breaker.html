@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bubble Pop | Simple Game Zone</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Simple Game Zone</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../games.html">Games</a></li>
+        <li><a href="../categories.html">Categories</a></li>
+        <li><a href="../leaderboard.html">Leaderboard</a></li>
+        <li><a href="../profile.html">Profile</a></li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </nav>
+    <div id="profile-widget">
+      <h3>Guest123</h3>
+      <p>Games Played: 0</p>
+      <p>Highest Score: N/A</p>
+    </div>
+  </header>
+
+  <main>
+    <h2>Block Breaker</h2>
+
+    <img src="../assets/images/thumbnail_block_breaker.png" alt="Bubble Pop thumbnail" class="game-detail-thumb">
+
+
+    <p>
+      Block breaker is a game about breaking as many blocks as you can as fast as possible!
+    </p>
+
+    <div class="game-buttons">
+        <button class="played" disabled>Played!</button>
+    </div>
+
+    <div class="favorite-toggle">
+      <span class="heart-icon">♡</span> Add to Favorites
+    </div>
+
+    <h3>High Scores</h3>
+    <ul class="score-list">
+      <li>PlayerOne - 1500</li>
+      <li>BubbleChamp - 1340</li>
+      <li>NoobSlayer - 980</li>
+    </ul>
+
+    <h3>Rate This Game</h3>
+    <div class="rating-stars">
+      ★★★★☆
+    </div>
+
+    <h3>User Reviews</h3>
+    <ul class="review-list">
+      <li><strong>PlayerOne:</strong> Super fun and nostalgic! 5/5</li>
+      <li><strong>RetroFan:</strong> Reminds me of old Flash games. Needs more levels. 4/5</li>
+    </ul>
+
+    <h3>Leave a Review</h3>
+    <form class="review-form">
+      <label for="username">Name:</label><br />
+      <input type="text" id="username" name="username" placeholder="Your name" /><br />
+
+      <label for="rating">Rating:</label><br />
+      <select id="rating" name="rating">
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="1">★☆☆☆☆</option>
+      </select><br />
+
+      <label for="review">Comment:</label><br />
+      <textarea id="review" name="review" placeholder="Write your thoughts..." rows="4"></textarea><br />
+
+      <button type="submit" disabled>Submit Review</button>
+    </form>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Simple Game Zone. Built for CS Web Programming at UNG.</p>
+  </footer>
+</body>
+</html>

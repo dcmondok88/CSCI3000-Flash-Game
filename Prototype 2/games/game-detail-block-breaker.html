@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bubble Pop | Simple Game Zone</title>
   <link rel="stylesheet" href="../styles/styles.css" />
+<script defer src="../scripts/main.js"></script>
 </head>
 <body>
   <header>
@@ -14,12 +15,29 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../games.html">Games</a></li>
         <li><a href="../categories.html">Categories</a></li>
-        <li><a href="../leaderboard.html">Leaderboard</a></li>
+        
+<li id="leaderboard-hover">
+  <a href="../leaderboard.html">Leaderboard</a>
+  <div id="leaderboard-preview">
+    <ul id="leaderboard-list"></ul>
+  </div>
+</li>
+
         <li><a href="../profile.html">Profile</a></li>
         <li><a href="../about.html">About</a></li>
       </ul>
     </nav>
-    <div id="profile-widget">
+    
+<!-- Profile Icon & Dropdown -->
+<div id="profile-container">
+  <img src="assets/profile-icon.png" alt="Profile" id="profile-icon" />
+  <div id="profile-dropdown">
+    <div id="profile-name">Guest123</div>
+    <div id="profile-games">Games Played: 0</div>
+    <div id="profile-score">Highest Score: N/A</div>
+  </div>
+</div>
+
       <h3>Guest123</h3>
       <p>Games Played: 0</p>
       <p>Highest Score: N/A</p>

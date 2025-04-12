@@ -81,6 +81,12 @@ function saveHanoiWin() {
   if (user) {
     user.hanoiWins = (user.hanoiWins || 0) + 1;
     user.bestHanoiMoves = Math.min(user.bestHanoiMoves ?? Infinity, moveCount);
+
+    const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
+    gameScores.hanoi = gameScores.hanoi || {};
+    gameScores.hanoi[username] = moveCount;
+    localStorage.setItem("gameScores", JSON.stringify(gameScores));
+
     localStorage.setItem("users", JSON.stringify(users));
   }
 }

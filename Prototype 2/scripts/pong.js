@@ -139,6 +139,15 @@ function draw() {
     }
   }
 
+  
+  // Save latest score
+  if (username) {
+    const gameScores = JSON.parse(localStorage.getItem("gameScores")) || {};
+    gameScores.pong = gameScores.pong || {};
+    gameScores.pong[username] = leftScore;
+    localStorage.setItem("gameScores", JSON.stringify(gameScores));
+  }
+
   requestAnimationFrame(draw);
 }
 

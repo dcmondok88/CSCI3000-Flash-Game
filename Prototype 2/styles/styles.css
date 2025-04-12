@@ -921,3 +921,103 @@ font-size: 0.9rem;
   color: inherit;
 }
 
+#edit-profile-btn,
+#save-profile-btn,
+#cancel-edit-btn {
+  padding: 8px 16px;
+  margin: 8px 4px 0 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Purple for edit & save */
+#edit-profile-btn,
+#save-profile-btn {
+  background-color: #b38add;
+  color: white;
+}
+
+#edit-profile-btn:hover,
+#save-profile-btn:hover {
+  background-color: #9c6cc9;
+}
+
+/* Red for cancel */
+#cancel-edit-btn {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+#cancel-edit-btn:hover {
+  background-color: #e05454;
+}
+
+/* Form layout */
+#edit-form {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#edit-form label {
+  margin: 8px 0 4px;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+#edit-form input {
+  width: 100%;
+  max-width: 300px;
+  padding: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#edit-form button {
+  margin: 4px;
+}
+
+
+
+
+#edit-form {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#edit-form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;       
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;              
+  text-align: left;            
+}
+
+
+
+#edit-form label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+#edit-form input {
+  width: 100%;
+  max-width: 300px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#edit-form button {
+  margin: 4px;
+}

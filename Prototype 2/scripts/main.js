@@ -131,3 +131,67 @@ if (logoutBtn) {
     window.location.href = "index.html";
   });
 }
+
+
+function enableProfileEditing() {
+  const editBtn = document.getElementById("edit-profile-btn");
+  const saveBtn = document.getElementById("save-profile-btn");
+  const cancelBtn = document.getElementById("cancel-edit-btn");
+  const form = document.getElementById("edit-form");
+  const nameInput = document.getElementById("edit-name");
+  const emailInput = document.getElementById("edit-email");
+
+  if (!editBtn || !saveBtn || !cancelBtn || !form) return;
+
+  editBtn.addEventListener("click", () => {
+    const currentName = localStorage.getItem("username") || "Guest";
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(u => u.username === currentName);
+
+    nameInput.value = user?.username || "";
+    emailInput.value = user?.email || "";
+
+    form.style.display = "block";
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    form.style.display = "none";
+  });
+
+  saveBtn.addEventListener("click", () => {
+    const newName = nameInput.value.trim();
+    const newEmail = emailInput.value.trim();
+
+    if (!newName || !newEmail) return alert("Both fields are required.");
+
+
+    const currentPw = document.getElementById("current-password")?.value.trim();
+    const newPw = document.getElementById("new-password")?.value.trim();
+    const confirmPw = document.getElementById("confirm-password")?.value.trim();
+
+    if (currentPw || newPw || confirmPw) {
+      const currentUser = users[userIndex];
+      if (!currentPw || !newPw || !confirmPw) return alert("All password fields must be filled.");
+      if (currentPw !== currentUser.password) return alert("Current password is incorrect.");
+      if (newPw !== confirmPw) return alert("New passwords do not match.");
+      if (newPw === "") return alert("New password cannot be empty.");
+      users[userIndex].password = newPw;
+    }
+
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const userIndex = users.findIndex(u => u.username === localStorage.getItem("username"));
+    if (userIndex === -1) return;
+
+    users[userIndex].username = newName;
+    users[userIndex].email = newEmail;
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("username", newName);
+
+    form.style.display = "none";
+    loadProfile();
+    document.getElementById("welcome-user").textContent = `Welcome, ${newName}`;
+  });
+}
+
+enableProfileEditing();

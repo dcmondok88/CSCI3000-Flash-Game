@@ -17,28 +17,30 @@ function loadProfile() {
   const hanoiWins = user ? user.hanoiWins || 0 : 0;
   const bestHanoi = user ? user.bestHanoiMoves ?? "—" : "—";
 
-  // Simple spans
   if (document.getElementById("profile-name")) document.getElementById("profile-name").textContent = name;
   if (document.getElementById("profile-email")) document.getElementById("profile-email").textContent = email;
   if (document.getElementById("profile-games")) document.getElementById("profile-games").textContent = gamesPlayed;
   if (document.getElementById("profile-score")) document.getElementById("profile-score").textContent = highScore;
   if (document.getElementById("profile-total")) document.getElementById("profile-total").textContent = totalScore;
   if (document.getElementById("profile-hanoi-wins")) document.getElementById("profile-hanoi-wins").textContent = hanoiWins;
-  // Render favorites
+  if (document.getElementById("profile-best-hanoi")) document.getElementById("profile-best-hanoi").textContent = bestHanoi;
+
   const favContainer = document.getElementById("favorite-games");
   if (favContainer && user?.favorites?.length > 0) {
     favContainer.innerHTML = "";
     user.favorites.forEach(fav => {
       const anchor = document.createElement("a");
       anchor.href = fav.link;
-      anchor.innerHTML = `<div class="placeholder-img"></div><span>${fav.title} ♥</span>`;
+      anchor.innerHTML = `
+        <div class="favorite-card">
+          <img src="${fav.img || 'assets/images/default-thumb.png'}" alt="${fav.title}" class="game-thumb" />
+          <span>${fav.title} ♥</span>
+        </div>
+      `;
       favContainer.appendChild(anchor);
     });
   }
 
-if (document.getElementById("profile-best-hanoi")) document.getElementById("profile-best-hanoi").textContent = bestHanoi;
-
-  // Legacy div fallback
   const profileInfo = document.getElementById("profile-display");
   if (profileInfo && !document.getElementById("profile-email")) {
     profileInfo.innerHTML = `
@@ -79,9 +81,47 @@ window.addEventListener("DOMContentLoaded", () => {
   if (welcomeEl && user) {
     welcomeEl.textContent = `Welcome, ${user}`;
   }
+
+  const favBtn = document.getElementById("favorite-btn");
+  if (favBtn && user) {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const userIndex = users.findIndex(u => u.username === user);
+    if (userIndex !== -1) {
+      const currentUser = users[userIndex];
+      const pageTitle = document.title.replace(" | Simple Game Zone", "");
+      const gamePath = window.location.pathname;
+
+      const thumbMap = {
+        "Pong": "assets/images/thumbnail_pong.png",
+        "Tower of Hanoi": "assets/images/thumbnail_hanoi.png"
+      };
+
+      const isFav = currentUser.favorites?.some(g => g.link === gamePath);
+      favBtn.textContent = isFav ? "♥ Favorited" : "♥ Favorite";
+
+      favBtn.addEventListener("click", () => {
+        const favorites = currentUser.favorites || [];
+        const favIndex = favorites.findIndex(f => f.link === gamePath);
+
+        if (favIndex !== -1) {
+          favorites.splice(favIndex, 1);
+          favBtn.textContent = "♥ Favorite";
+        } else {
+          favorites.push({
+            title: pageTitle,
+            link: gamePath,
+            img: thumbMap[pageTitle] || "assets/images/default-thumb.png"
+          });
+          favBtn.textContent = "♥ Favorited";
+        }
+
+        users[userIndex].favorites = favorites;
+        localStorage.setItem("users", JSON.stringify(users));
+      });
+    }
+  }
 });
 
-// Logout
 const logoutBtn = document.getElementById("logout-btn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {

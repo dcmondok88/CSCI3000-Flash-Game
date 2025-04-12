@@ -10,28 +10,49 @@ function loadProfile() {
   const name = localStorage.getItem("username") || "Guest";
   const gamesPlayed = localStorage.getItem("gamesPlayed") || 0;
   const highScore = localStorage.getItem("highScore") || "N/A";
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find(u => u.username === name);
+  const totalScore = user ? user.totalScore || 0 : 0;
+  const email = user ? user.email || "—" : "—";
+  const hanoiWins = user ? user.hanoiWins || 0 : 0;
+  const bestHanoi = user ? user.bestHanoiMoves ?? "—" : "—";
 
-  const nameEl = document.getElementById("profile-name");
-  const gamesEl = document.getElementById("profile-games");
-  const scoreEl = document.getElementById("profile-score");
-
-  if (nameEl && gamesEl && scoreEl) {
-    nameEl.textContent = name;
-    gamesEl.textContent = `Games Played: ${gamesPlayed}`;
-    scoreEl.textContent = `Highest Score: ${highScore}`;
+  // Simple spans
+  if (document.getElementById("profile-name")) document.getElementById("profile-name").textContent = name;
+  if (document.getElementById("profile-email")) document.getElementById("profile-email").textContent = email;
+  if (document.getElementById("profile-games")) document.getElementById("profile-games").textContent = gamesPlayed;
+  if (document.getElementById("profile-score")) document.getElementById("profile-score").textContent = highScore;
+  if (document.getElementById("profile-total")) document.getElementById("profile-total").textContent = totalScore;
+  if (document.getElementById("profile-hanoi-wins")) document.getElementById("profile-hanoi-wins").textContent = hanoiWins;
+  // Render favorites
+  const favContainer = document.getElementById("favorite-games");
+  if (favContainer && user?.favorites?.length > 0) {
+    favContainer.innerHTML = "";
+    user.favorites.forEach(fav => {
+      const anchor = document.createElement("a");
+      anchor.href = fav.link;
+      anchor.innerHTML = `<div class="placeholder-img"></div><span>${fav.title} ♥</span>`;
+      favContainer.appendChild(anchor);
+    });
   }
 
+if (document.getElementById("profile-best-hanoi")) document.getElementById("profile-best-hanoi").textContent = bestHanoi;
+
+  // Legacy div fallback
   const profileInfo = document.getElementById("profile-display");
-  if (profileInfo) {
+  if (profileInfo && !document.getElementById("profile-email")) {
     profileInfo.innerHTML = `
       <p><strong>Username:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
       <p><strong>Games Played:</strong> ${gamesPlayed}</p>
       <p><strong>Highest Score:</strong> ${highScore}</p>
+      <p><strong>Total Score:</strong> ${totalScore}</p>
+      <p><strong>Hanoi Wins:</strong> ${hanoiWins}</p>
+      <p><strong>Best Hanoi:</strong> ${bestHanoi} moves</p>
     `;
   }
 }
 
-// Sample leaderboard
 const leaderboardData = [
   { username: "PlayerOne", score: 9990 },
   { username: "GameMaster", score: 8700 },

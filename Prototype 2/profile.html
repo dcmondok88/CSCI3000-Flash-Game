@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Profile | Simple Game Zone</title>
-    <link rel="stylesheet" href="styles/styles.css">
-<script defer src="scripts/main.js"></script>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script defer src="scripts/main.js"></script>
 </head>
 <body>
     <header>
@@ -15,59 +15,39 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="games.html">Games</a></li>
                 <li><a href="categories.html">Categories</a></li>
-                
-<li id="leaderboard-hover">
-  <a href="leaderboard.html">Leaderboard</a>
-  <div id="leaderboard-preview">
-    <ul id="leaderboard-list"></ul>
-  </div>
-</li>
-
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="about.html">About</a></li>
+                <li id="leaderboard-hover">
+                    <a href="leaderboard.html">Leaderboard</a>
+                    <div id="leaderboard-preview">
+                        <ul id="leaderboard-list"></ul>
+                    </div>
+                </li>
             </ul>
         </nav>
-
-        
         <div id="profile-actions">
-          <span id="welcome-user">Welcome, Guest</span>
-          <a href="profile.html" id="profile-button">Profile</a>
-          <button id="logout-btn">Logout</button>
+            <span id="welcome-user">Welcome, Guest</span>
+            <a href="profile.html" id="profile-button">Profile</a>
+            <button id="logout-btn">Logout</button>
         </div>
-        
-</div>
-
-            
-        </div>
-
-        <section id="search">
-            <input type="text" placeholder="Search games..." />
-          </section>          
-  
-      </header>
     </header>
 
     <main>
         <h2>Your Profile</h2>
+        <div id="profile-display">
+            <p><strong>Username:</strong> <span id="profile-name">Guest</span></p>
+            <p><strong>Email:</strong> <span id="profile-email">—</span></p>
+            <p><strong>Games Played:</strong> <span id="profile-games">0</span></p>
+            <p><strong>Highest Score:</strong> <span id="profile-score">N/A</span></p>
+            <p><strong>Total Score:</strong> <span id="profile-total">0</span></p>
+            <p><strong>Hanoi Wins:</strong> <span id="profile-hanoi-wins">0</span></p>
+            <p><strong>Best Hanoi:</strong> <span id="profile-best-hanoi">—</span> moves</p>
+        </div>
 
-        <div class="profile-section">
-          <div class="avatar-placeholder"></div>
-          <div class="profile-info" id="profile-display"></div>
-        </div>
-        
         <h3>Your Favorite Games</h3>
-        <div class="game-grid">
-          <a href="games/bubble-pop.html">
-            <div class="placeholder-img"></div>
-            <span>Bubble Pop ♥</span>
-          </a>
-          <a href="games/block-breaker.html">
-            <div class="placeholder-img"></div>
-            <span>Block Breaker ♥</span>
-          </a>
+        <div class="game-grid" id="favorite-games">
+            <!-- Favorite games dynamically injected -->
         </div>
-     
     </main>
+
     <footer>
         <p>&copy; 2025 Simple Game Zone. Built for CS Web Programming at UNG.</p>
     </footer>

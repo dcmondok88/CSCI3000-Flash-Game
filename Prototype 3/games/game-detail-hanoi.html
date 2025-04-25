@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tower of Hanoi | Simple Game Zone</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <script defer src="../scripts/main.js"></script>
+  <script defer src="../scripts/hanoi.js"></script>
+  <style>
+    #game-area {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .peg {
+      width: 160px;
+      height: 300px;
+      border: 2px dashed #aaa;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      padding: 1rem;
+    }
+    .disk {
+      height: 20px;
+      margin: 2px 0;
+      border-radius: 5px;
+      cursor: grab;
+    }
+    #move-count {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Simple Game Zone</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../games.html">Games</a></li><li id="leaderboard-hover">
+          <a href="../leaderboard.html">Leaderboard</a>
+          <div id="leaderboard-preview">
+            <ul id="leaderboard-list"></ul>
+          </div>
+        </li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <div id="profile-actions">
+      <span id="welcome-user">Welcome, Guest</span>
+      <a href="../profile.html" id="profile-button">Profile</a>
+      <button id="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <h2>Tower of Hanoi</h2>
+    <div id="game-area">
+      <div class="peg" id="peg-1"></div>
+      <div class="peg" id="peg-2"></div>
+      <div class="peg" id="peg-3"></div>
+    </div>
+    <p id="move-count">Moves: 0</p>
+    <button id="favorite-btn" class="favorite-button">♥ Favorite</button>
+    <p>Move all the disks from the left peg to the right peg, keeping them in the same order (largest on bottom, smallest on top).</p>
+    <p>Only one disk can be moved at a time.</p>
+    <p>You can only move the top disk of a peg.</p>
+    <p>You cannot place a larger disk on top of a smaller disk.</p>
+    <p>Minimum moves to solve is 2^n - 1, n being the number of disks</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Simple Game Zone. Built for CS Web Programming at UNG.</p>
+  </footer>
+</body>
+</html>

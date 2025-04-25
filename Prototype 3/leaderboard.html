@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard | Simple Game Zone</title>
+    <link rel="stylesheet" href="styles/styles.css">
+<script defer src="scripts/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Simple Game Zone</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li><li id="leaderboard-hover">
+  <a href="leaderboard.html">Leaderboard</a>
+  <div id="leaderboard-preview">
+    <ul id="leaderboard-list"></ul>
+  </div>
+</li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        
+        <div id="profile-actions">
+          <span id="welcome-user">Welcome, Guest</span>
+          <a href="profile.html" id="profile-button">Profile</a>
+          <button id="logout-btn">Logout</button>
+        </div>
+        
+</div>
+
+            
+        </div>
+
+        <section id="search">
+            <input type="text" placeholder="Search games..." />
+          </section>          
+  
+      </header>
+    </header>
+
+    <main>
+        <h2>Site-Wide Leaderboard</h2>
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Username</th>
+              <th>Total Score</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body"></tbody>
+        </table>
+      
+        <p style="margin-top: 2rem;">Personal leaderboards coming soon: Track your scores per game and compete with friends!</p>
+      </main>
+      
+    <footer>
+        <p>&copy; 2025 Simple Game Zone. Built for CS Web Programming at UNG.</p>
+    </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const scores = [];
+
+  users.forEach(user => {
+    let total = 0;
+    const gameData = JSON.parse(localStorage.getItem("gameScores")) || {};
+    if (gameData.pong && gameData.pong[user.username]) {
+      total += gameData.pong[user.username];
+    }
+    if (gameData.hanoi && gameData.hanoi[user.username]) {
+      total += gameData.hanoi[user.username];
+    }
+    scores.push({ username: user.username, score: total });
+  });
+
+  scores.sort((a, b) => b.score - a.score);
+
+  const tbody = document.getElementById("leaderboard-body");
+  if (tbody) {
+    tbody.innerHTML = "";
+    scores.forEach((entry, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${entry.username}</td>
+        <td>${entry.score}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+});
+</script>
+</body>
+
+</html>

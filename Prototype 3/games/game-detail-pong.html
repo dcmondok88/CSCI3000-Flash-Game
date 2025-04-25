@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pong | Simple Game Zone</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <script defer src="../scripts/main.js"></script>
+  <script defer src="../scripts/pong.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Simple Game Zone</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../games.html">Games</a></li><li id="leaderboard-hover">
+          <a href="../leaderboard.html">Leaderboard</a>
+          <div id="leaderboard-preview">
+            <ul id="leaderboard-list"></ul>
+          </div>
+        </li>
+        <li><a href="../about.html">About</a></li>
+      </ul>
+    </nav>
+
+    <div id="profile-actions">
+      <span id="welcome-user">Welcome, Guest</span>
+      <a href="../profile.html" id="profile-button">Profile</a>
+      <button id="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <h2>Pong</h2>
+    <canvas id="pongCanvas" width="600" height="400" style="background:#000; display: block; margin: 1rem auto;"></canvas>
+    <button id="favorite-btn" class="favorite-button">♥ Favorite</button>
+    <p style="text-align: center; color: #333;">Use W/S or ↑/↓ to move your paddle</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Simple Game Zone. Built for CS Web Programming at UNG.</p>
+  </footer>
+</body>
+</html>

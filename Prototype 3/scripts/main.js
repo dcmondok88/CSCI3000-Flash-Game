@@ -198,9 +198,28 @@ enableProfileEditing();
 
 
 
-// Leaderboard Points Injection
-const leaderboardPoints = JSON.parse(localStorage.getItem("leaderboardPoints")) || {};
-const profilePointsElement = document.getElementById("profile-points");
-if (profilePointsElement && username) {
-    profilePointsElement.textContent = leaderboardPoints[username] || 0;
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search-input");
+    if (!searchInput) return;
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
+        const games = document.querySelectorAll(".game-grid a");
+        let anyVisible = false;
+
+        games.forEach(game => {
+            const label = game.querySelector("span")?.textContent.toLowerCase() || "";
+            if (label.includes(query)) {
+                game.style.display = "flex";
+                anyVisible = true;
+            } else {
+                game.style.display = "none";
+            }
+        });
+
+        const noResults = document.getElementById("no-results");
+        if (noResults) {
+            noResults.style.display = anyVisible ? "none" : "block";
+        }
+    });
+});

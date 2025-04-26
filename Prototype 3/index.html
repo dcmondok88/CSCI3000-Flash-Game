@@ -9,30 +9,31 @@
 </head>
 <body>
     <header>
-        <h1>Simple Game Zone</h1>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="games.html">Games</a></li><li id="leaderboard-hover">
-              <a href="leaderboard.html">Leaderboard</a>
-              <div id="leaderboard-preview">
-                <ul id="leaderboard-list"></ul>
-              </div>
-            </li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </nav>
-
-        <div id="profile-actions">
-          <span id="welcome-user">Welcome, Guest</span>
-          <a href="profile.html" id="profile-button">Profile</a>
-          <button id="logout-btn">Logout</button>
-        </div>              
-        
+        <div class="header-container">
+            <h1>Simple Game Zone</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li id="leaderboard-hover">
+                        <a href="leaderboard.html">Leaderboard</a>
+                        <div id="leaderboard-preview">
+                            <ul id="leaderboard-list"></ul>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div id="profile-actions">
+                <span id="welcome-user">Welcome, Guest</span>
+                <a href="profile.html" id="profile-button">Profile</a>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
         <section id="search">
             <input type="text" placeholder="Search games..." />
-        </section>  
-    </header> 
+        </section>
+    </header>
 
     <section id="hero">
         <h2>Jump Into Nostalgia</h2>
@@ -41,48 +42,46 @@
     </section>
 
     <div class="home-layout">
-    <main>
-        <section id="welcome">
-            <h2>Welcome to the Simple Game Zone!</h2>
-            <p>If you wanted to play extremely simple games, this is the place for you!</p>
-        </section>
+        <main>
+            <section id="welcome">
+                <h2>Welcome to the Simple Game Zone!</h2>
+                <p>If you wanted to play extremely simple games, this is the place for you!</p>
+            </section>
 
-        <section id="game-of-the-day">
-          <h3>Game of the Day</h3>
-          <div class="game-feature-card">
-            <img src="assets/images/thumbnail_hanoi.png" alt="Tower of Hanoi thumbnail" class="game-thumb">
-            <h4>The Tower of Hanoi</h4>
-            <p>Can you solve the Tower of Hanoi?</p>
-            <a href="games/game-detail-hanoi.html">Play Now →</a>
-          </div>
-        </section>
-
+            <section id="game-of-the-day">
+                <h3>Game of the Day</h3>
+                <div class="game-feature-card">
+                    <img src="assets/images/thumbnail_hanoi.png" alt="Tower of Hanoi thumbnail" class="game-thumb">
+                    <h4>The Tower of Hanoi</h4>
+                    <p>Can you solve the Tower of Hanoi?</p>
+                    <a href="games/game-detail-hanoi.html">Play Now →</a>
+                </div>
+            </section>
         </main>
 
-    <aside class="sidebar">
+        <aside class="sidebar">
+            <section id="recently-played" class="sidebar-card">
+                <h2>Recently Played</h2>
+                <ul class="sidebar-list">
+                    <li><a href="games/game-detail-pong.html">Pong</a></li>
+                    <li><a href="games/block-breaker.html">Block Breaker</a></li>
+                    <li><a href="games/game-detail-hanoi.html">Tower of Hanoi</a></li>
+                </ul>
+            </section>
 
-      <section id="recently-played" class="sidebar-card">
-        <h2>Recently Played</h2>
-        <ul class="sidebar-list">
-          <li><a href="games/game-detail-pong.html">Pong</a></li>
-          <li><a href="games/block-breaker.html">Block Breaker</a></li>
-          <li><a href="games/game-detail-hanoi.html">Tower of Hanoi</a></li>
-        </ul>
-      </section>
-
-      <section id="popular-now" class="sidebar-card">
-        <h2>Popular Now</h2>
-        <ul class="sidebar-list">
-          <li><a href="games/game-detail-hanoi.html">Tower of Hanoi</a></li>
-          <li><a href="games/game-detail-pong.html">Pong</a></li>
-          <li><a href="games/game-detail-block-breaker.html">Block Breaker</a></li>
-        </ul>
-      </section>
-    </aside>
+            <section id="popular-now" class="sidebar-card">
+                <h2>Popular Now</h2>
+                <ul class="sidebar-list">
+                    <li><a href="games/game-detail-hanoi.html">Tower of Hanoi</a></li>
+                    <li><a href="games/game-detail-pong.html">Pong</a></li>
+                    <li><a href="games/game-detail-block-breaker.html">Block Breaker</a></li>
+                </ul>
+            </section>
+        </aside>
     </div>
 
     <footer>
         <p>&copy; 2025 Simple Game Zone. Built for CS Web Programming at UNG.</p>
-    </footer> 
+    </footer>
 </body>
 </html>

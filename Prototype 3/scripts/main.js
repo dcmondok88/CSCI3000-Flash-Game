@@ -195,3 +195,12 @@ function enableProfileEditing() {
 }
 
 enableProfileEditing();
+
+
+
+// Leaderboard Points Injection
+const leaderboardPoints = JSON.parse(localStorage.getItem("leaderboardPoints")) || {};
+const profilePointsElement = document.getElementById("profile-points");
+if (profilePointsElement && username) {
+    profilePointsElement.textContent = leaderboardPoints[username] || 0;
+}

@@ -95,3 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
   createDisks();
   document.getElementById("move-count").textContent = `Moves: ${moveCount}`;
 });
+
+// Award points if solved optimally
+
+if (typeof awardHanoiPointsIfWon === "function") {
+    awardHanoiPointsIfWon(moveCount, optimalMoveCount);
+}

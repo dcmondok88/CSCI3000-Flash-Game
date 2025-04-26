@@ -152,3 +152,9 @@ function draw() {
 }
 
 drawStartScreen();
+
+// Award points if enough score
+
+if (typeof awardPongPointsIfScored === "function") {
+    awardPongPointsIfScored(player.score);
+}

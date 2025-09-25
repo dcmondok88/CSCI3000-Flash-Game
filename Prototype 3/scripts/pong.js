@@ -110,7 +110,7 @@ function resetBall() {
   ball.x = canvas.width / 2;
   ball.y = canvas.height / 2;
   ball.dx *= -1;
-  ball.dy = 3 * (Math.random() > 0.5 ? 1 : -1);
+  ball.dy = 2 * (Math.random() > 0.5 ? 1 : -1);
 }
 
 function draw() {
